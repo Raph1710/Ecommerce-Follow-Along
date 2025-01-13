@@ -58,3 +58,7 @@ By the end of this project, you’ll be able to:
 
 ---
 
+## **MILESTONE 3**
+
+Successfully connected to mongoDB database
+
