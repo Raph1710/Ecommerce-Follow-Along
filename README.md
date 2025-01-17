@@ -62,3 +62,11 @@ By the end of this project, you’ll be able to:
 
 Successfully connected to mongoDB database
 
+## **MILESTONE 4**
+
+Added Login page
+
+## **MILESTONE 5**
+
+Added Signup Page
+
