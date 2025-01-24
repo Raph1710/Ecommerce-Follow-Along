@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import { RxAvatar } from "react-icons/rx";
@@ -10,14 +10,6 @@ const SignupPage = () => {
   const [password, setPassword] = useState("");
   const [visible, setVisible] = useState(false);
   const [avatar, setAvatar] = useState(null);
-
-  useEffect(() => {
-    return () => {
-      if (avatar) {
-        URL.revokeObjectURL(avatar);
-      }
-    };
-  }, [avatar]);
 
   const handleFileSubmit = (e) => {
     const file = e.target.files[0];
@@ -36,27 +28,23 @@ const SignupPage = () => {
     newForm.append("email", email);
     newForm.append("password", password);
     
-    // Log FormData content to verify it's being populated correctly
-    for (let [key, value] of newForm.entries()) {
-      console.log(`${key}: ${value}`);
-    }
-
+ 
     const config = {
       headers: {
         "Content-type": "multipart/form-data",
-        Accept: "any",
+        "Accept": "any",
       },
     };
 
     // Send the POST request to the backend
     axios
-      .post("http://localhost:8000/api/v2/user/create-user", newForm, config)
+      .post("http://localhost:8000/create-user", newForm, config)
       .then((res) => console.log("Response: ", res.data)) // Log successful response
       .catch((err) => console.log("Error: ", err)); // Log error
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-r from-blue-300 via-cyan-200 via-purple-200 to-red-100 px-6 py-12 flex flex-col justify-center sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gradient-to-r from-blue-200 via-blue-300 to-blue-400 px-6 py-12 flex flex-col justify-center sm:px-6 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <h2 className="mt-6 text-center text-3xl font-extrabold text-black drop-shadow-lg transform transition-all duration-500 ease-in-out hover:scale-105 hover:text-gray-800">
           Register as a New User
@@ -162,7 +150,7 @@ const SignupPage = () => {
             <div>
               <button
                 type="submit"
-                className="w-full h-[40px] flex justify-center py-2 px-4 border text-sm font-medium rounded-md text-white bg-gradient-to-r from-blue-400 to-purple-400 hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-200"
+                className="w-full h-[40px] flex justify-center py-2 px-4 border text-sm font-medium rounded-md text-white bg-blue-400 hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-200"
               >
                 Submit
               </button>
@@ -174,7 +162,7 @@ const SignupPage = () => {
                 to="/login"
                 className="text-blue-500 pl-2 hover:underline transition-all duration-200"
               >
-                Sign In
+                Login To Your Account😊
               </Link>
             </div>
           </form>

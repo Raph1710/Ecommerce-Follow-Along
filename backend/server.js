@@ -1,8 +1,9 @@
+
+const userrouter = require('./controller/user');
 const express = require('express');
 const cors = require('cors');
 const multer = require('multer');
-const mongoose = require('mongoose');
-const authRoutes = require('./controller/user') // Add Mongoose for MongoDB connection
+const mongoose = require('mongoose'); // Add Mongoose for MongoDB connection
 const app = express();
 const port = 8000;
 
@@ -12,7 +13,7 @@ app.use(cors());
 // Body parsing middleware for form data
 app.use(express.json());  // For JSON data
 app.use(express.urlencoded({ extended: true }));  // For form-encoded data
-
+app.use(userrouter); // For
 // File upload setup using multer
 const upload = multer({ dest: 'uploads/' });
 
@@ -23,12 +24,11 @@ mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
   .catch((err) => console.error("❌Database connection error:", err));
 
 // Define the route for user creation
-app.use('/api/v2/user', authRoutes);
-app.post('/api/v2/user/create-user', upload.single('file'), (req, res) => {
-  console.log("Received request with body:", req.body);
-  console.log("File data:", req.file);
-  res.status(200).send("User created successfully");
-});
+// app.post('/api/v2/user/create-user', upload.single('file'), (req, res) => {
+//   console.log("Received request with body:", req.body);
+//   console.log("File data:", req.file);
+//   res.status(200).send("User created successfully");
+// });
 
 // Start server
 app.listen(port, () => {
