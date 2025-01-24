@@ -70,3 +70,15 @@ Added Login page
 
 Added Signup Page
 
+## **MILESTONE 6**
+
+Added Login Page
+
+## **MILESTONE 7**
+
+Taking in user information and storing it securely
+
+## **MILESTONE 8**
+
+Added Home page
+
