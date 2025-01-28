@@ -82,3 +82,6 @@ Taking in user information and storing it securely
 
 Added Home page
 
+## **MILESTONE 9**
+
+Added a create-product page
