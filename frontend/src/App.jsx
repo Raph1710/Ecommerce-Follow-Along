@@ -4,6 +4,7 @@ import { BrowserRouter,Routes,Route } from 'react-router-dom';
 import './App.css'
 import {Home, LoginPage } from './Routes/route.js';
 import { SignupPage } from './Routes/route.js';
+import { CreateProduct } from './Routes/route.js';
 
 const App = () => {
   return (
@@ -12,6 +13,7 @@ const App = () => {
         <Route path="/" element={<Home/>}/>
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
+        <Route path="/create-product" element={<CreateProduct />}></Route>
       </Routes>
     </BrowserRouter>
   );
