@@ -1,5 +1,7 @@
-import {useState,useEffect} from 'react'
+//eslint-disable-next-line
+import React, {useState} from 'react'
 import {AiOutlinePlusCircle} from "react-icons/ai";
+import axios from "axios";
 
 const CreateProduct = () => {
     const [image, setImage] = useState([]);
@@ -26,39 +28,35 @@ const CreateProduct = () => {
         setPreviewImages((prevPreviews)=>prevPreviews.concat(imagePreviews));
     }
 
-    useEffect(() => {
-        return ()=>{
-            previewImages.forEach((e)=>URL.revokeObjectURL(e))
-
-        }
-    }, [previewImages])
-
-    const handleSubmit = (e) => {
+    const handleSubmit = async(e) => {
         e.preventDefault()
-        const productData = {
-            name: name,
-            description: description,
-            category: category,
-            tags: tags,
-            price: price,
-            stock: stock,
-            email: email,
-            image: image,
-        }
-        console.log("Product data", productData);
-        alert("Product created successfully")
+        console.log("Hi");
 
-        setImage([])
-        setPreviewImages([])
-        setName('')
-        setDescription('')
-        setCategory('')
-        setTags('')
-        setPrice('')
-        setStock('')
-        setEmail('')
+        const formData = new FormData();
+        formData.append("name", name);
+        formData.append("description", description);
+        formData.append("category", category);
+        formData.append("tags", tags);
+        formData.append("price", price);
+        formData.append("stock", stock);
+        formData.append("email", email);
+    
+        image.forEach((image)=>{
+            formData.append("images", image);
 
-    }
+        })
+
+    const config = {
+      headers: {
+        "Content-type": "multipart/form-data",
+        "Accept": "any",
+      },
+    };
+
+    axios.post("http://localhost:8000/api/v2/product/productcreate", formData, config).then((res) => { 
+    console.log("Response: ", res.data)}) // Log successful response
+    .catch((err) => { console.log("Error: ", err)}); // Log error
+    };
 
     return (
         <div className="min-h-screen bg-gradient-to-bl from-red-500 to-yellow-400 px-6 py-12 flex flex-col justify-center sm:px-9 lg:px-8">
@@ -103,21 +101,21 @@ const CreateProduct = () => {
                     </div>
 
                     <div className="mt-4">
-                        <label className="block text-sm font-bold text-gray-700">
-                            Category <span className="text-sm text-red-500">*</span>
+                        <label className="block text-sm font-medium text-gray-700">
+                            Category <span className="text-red-500">*</span>
                         </label>
                         <select
-
                             value={category}
-                            className="w-full p-2 border rounded"
                             onChange={(e) => setCategory(e.target.value)}
-                            required>
-                            <option className="block text-s font-medium text-gray-200">Choose a Category</option>
-                            {categoriesData.map((category) => {
-                                <option value={category.title} key={category.title}>
+                            className="w-full p-2 border rounded"
+                            required
+                        >
+                            <option className="blocktext-s font-medium text-gray-700" value="">Select a category</option>
+                            {categoriesData.map((category) => (
+                                <option key={category.title} value={category.title}>
                                     {category.title}
                                 </option>
-                            })}
+                            ))}
                         </select>
                     </div>
 
