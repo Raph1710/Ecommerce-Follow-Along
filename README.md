@@ -89,3 +89,7 @@ Added a create-product page
 ## **MILESTONE 10**
 
 Added backend functionality for the create product page
+
+## **MILESTONE 11**
+
+Changed Home page
