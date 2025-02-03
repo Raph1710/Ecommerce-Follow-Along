@@ -1,5 +1,19 @@
 //eslint-disable-next-line
+import {React, useState, useEffect} from 'react';
+import propTypes from 'prop-types'
 export default function Product({name, image, description, price}){
+
+    const [currentIndex, setCurrentIndex] = useState(0);
+    useEffect(() => {
+        if (!image || image.length === 0) return;
+        const interval = setInterval(() => {
+          setCurrentIndex(prevIndex => (prevIndex + 1) % image.length);
+        }, 2000);
+        return () => clearInterval(interval); // Cleanup on unmount
+      }, [image]);   //Defining useState and useEffect Hooks
+    
+      const currentImage = image[currentIndex]; //add this line
+
     return(
         <div className="bg-neutral-200 p-4 rounded-lg shadow-md flex flex-col justify-between">
             <div className="w-full">
@@ -17,4 +31,11 @@ export default function Product({name, image, description, price}){
             </div>
         </div>
     )
+}
+
+Product.propTypes = {
+    name: propTypes.string.isRequired,
+    image: propTypes.string.isRequired,
+    description: propTypes.string.isRequired,
+    price: propTypes.number.isRequired
 }
