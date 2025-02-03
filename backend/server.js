@@ -12,23 +12,16 @@ app.use(cors());
 
 // Body parsing middleware for form data
 app.use(express.json());  // For JSON data
-app.use(express.urlencoded({ extended: true }));  // For form-encoded data
+app.use(express.urlencoded({ extended: true })); 
 app.use(userrouter); // For
 // File upload setup using multer
 const upload = multer({ dest: 'uploads/' });
 
 // Connect to MongoDB
-const mongoURI = 'mongodb+srv://heramb:inamke@cluster0.wycsh.mongodb.net/test?retryWrites=true&w=majority&tls=true'; // Replace with your MongoDB URI
+const mongoURI = 'mongodb+srv://raphdesantos:raph13600@cluster0.hj8ng.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'; // Replace with your MongoDB URI
 mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log("✅Database connection successful"))
   .catch((err) => console.error("❌Database connection error:", err));
-
-// Define the route for user creation
-// app.post('/api/v2/user/create-user', upload.single('file'), (req, res) => {
-//   console.log("Received request with body:", req.body);
-//   console.log("File data:", req.file);
-//   res.status(200).send("User created successfully");
-// });
 
 // Start server
 app.listen(port, () => {
