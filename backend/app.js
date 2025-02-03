@@ -5,6 +5,8 @@ const product = require("./controller/product");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const errorHandler = require("./middleware/error");
+const path = require('path');
+
 app.use(errorHandler);
 
 // Built-in middleware for parsing JSON
@@ -23,7 +25,8 @@ if (process.env.NODE_ENV !== "PRODUCTION") {
   });
 }
 
-
+app.use('/uploads', express.static(path.join(___dirname, 'uploads')));
+app.use('/products', express.static(path.join(___dirname, 'uploads')));
 
 app.get("/", (_req, res) => {
   return res.send("Welcome to backend");
