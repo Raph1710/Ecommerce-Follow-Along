@@ -93,3 +93,7 @@ Added backend functionality for the create product page
 ## **MILESTONE 11**
 
 Changed Home page
+
+## **MILESTONE 12**
+
+ Created a my-Products page that displays all the products added by a specific user based on their email
