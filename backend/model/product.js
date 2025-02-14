@@ -10,7 +10,7 @@ const productSchema = new mongoose.Schema(
             type: String,
             required: [true, "Please provide the description of the product"]
         },
-        Category:{
+        category:{
             type: String,
             required: [true, "Please provide the product category"]
         },
@@ -27,7 +27,7 @@ const productSchema = new mongoose.Schema(
             required: [true, "Please provide the product stock"]
         },
         images:{
-            type: String,
+            type: [String],
             required: [true, "Please provide some product images"]
         },
         email:{
