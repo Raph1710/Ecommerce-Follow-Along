@@ -97,3 +97,15 @@ Changed Home page
 ## **MILESTONE 12**
 
  Created a my-Products page that displays all the products added by a specific user based on their email
+
+## **MILESTONE 13**
+
+Added Functionality to edit the uploaded products
+
+## **MILESTONE 14**
+
+Added Functionality to delete the uploaded products
+
+## **MILESTONE 15**
+
+Created a new ```NAV``` component which contains links to the Home page, My products page, add products page and the cart page

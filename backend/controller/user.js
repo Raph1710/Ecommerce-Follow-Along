@@ -3,7 +3,7 @@ const path = require("path");
 const fs =require("fs");
 const User = require("../model/user");
 const router = express.Router();
-const { upload } = require("../middleware/multer");
+const { upload } = require("../multer");
 const ErrorHandler = require("../utils/ErrorHandler");
 const catchAsyncErrors = require("../middleware/catchAsyncErrors");
 const bcrypt =require("bcryptjs");
@@ -76,7 +76,7 @@ router.post("/login-user",catchAsyncErrors(async(req, res, next)=>{
     console.log("At Auth - password", password, "Hash: ", user_authen.password);
     if(!isPasswordMatched){
         console.log("Password not matched")
-        return next(new ErrorHandler("Autehncation failed,Invalid password",401));
+        return next(new ErrorHandler("Authencation failed,Invalid password",401));
 
     }
     res.status(200).json({

@@ -1,29 +1,27 @@
-
-const userrouter = require('./controller/user');
-const express = require('express');
+const app = require("./app");
+const connectDatabase = require("./db/Database");
 const cors = require('cors');
-const multer = require('multer');
-const mongoose = require('mongoose'); // Add Mongoose for MongoDB connection
-const app = express();
-const port = 8000;
+const bcrypt = require("bcrypt");
 
-// Enable CORS if needed (if frontend and backend are on different ports)
-app.use(cors());
 
-// Body parsing middleware for form data
-app.use(express.json());  // For JSON data
-app.use(express.urlencoded({ extended: true })); 
-app.use(userrouter); // For
-// File upload setup using multer
-const upload = multer({ dest: 'uploads/' });
+// Handle uncaught exceptions
+process.on("uncaughtException", (err) => {
+    console.log(`Error: ${err.message}`);
+    console.log(`Shutting down the server due to an uncaught exception...`);
+});
 
-// Connect to MongoDB
-const mongoURI = 'mongodb+srv://raphdesantos:raph13600@cluster0.hj8ng.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'; // Replace with your MongoDB URI
-mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log("✅Database connection successful"))
-  .catch((err) => console.error("❌Database connection error:", err));
+// Load environment variables
+if (process.env.NODE_ENV !== "PRODUCTION") {
+    require("dotenv").config({
+        path: "backend/config/.env",
+    });
+}
 
-// Start server
-app.listen(port, () => {
-  console.log(`Server running at http://localhost:${port}`);
+
+// Connect to the database
+connectDatabase();
+
+// Start the server
+const server = app.listen(process.env.PORT, () => {
+    console.log(`Server is running on http://localhost:${process.env.PORT}`);
 });
