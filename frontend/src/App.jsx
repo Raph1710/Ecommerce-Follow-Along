@@ -7,6 +7,7 @@ import { SignupPage } from './Routes/route.js';
 import { CreateProduct } from './Routes/route.js';
 import { MyProducts } from './Routes/route.js';
 import {Cart} from './Routes/route.js';
+import { ProductDetails } from './Routes/route.js';
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
         <Route path="/my-products" element={<MyProducts/>}></Route>
         <Route path='/cart' element={<Cart />} />
         <Route path="/create-product/:id" element={<CreateProduct />}></Route>
+        <Route path="/product/:id" element={<ProductDetails />}></Route>
       </Routes>
     </BrowserRouter>
   );

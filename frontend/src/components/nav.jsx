@@ -2,6 +2,8 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
+
+
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
 
@@ -84,7 +86,7 @@ const Navbar = () => {
                             </li>
                             <li>
                                 <NavLink
-                                    to="/create-product"
+                                    to="/product"
                                     end
                                     className={navLinkClass}
                                 >
@@ -131,7 +133,7 @@ const Navbar = () => {
                                 My Product
                             </NavLink>
                         </li>
-                        <li>
+                        <li>    
                             <NavLink
                                 to="/create-product"
                                 end
