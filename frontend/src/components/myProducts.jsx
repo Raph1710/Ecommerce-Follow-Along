@@ -23,19 +23,19 @@ export default function MyProduct({ _id, name, images, description, price}){
     }
 
     const handleDelete = async () => {
-        try{
+        try {
             const response = await axios.delete(
                 `http://localhost:8000/api/v2/product/delete-product/${_id}`
             );
-            if(response.status===200){
-                alert("Product deleted successfully 🗣️🔊🔥")
+            if (response.status === 200) {
+                alert("Product deleted successfully! 🗣️🔊🔥");
                 window.location.reload();
             }
-        }catch(err){
-            console.error("Error deleting product😤😡🤬: ", err);
-            alert("Failed to delete the product☹️😞😓")
+        } catch (err) {
+            console.error("Error deleting product 😤😡🤬:", err.response?.data || err.message);
+            alert("Failed to delete the product ☹️😞😓");
         }
-    }
+    };
 
     return (
         <div className="bg-neutral-200 p-4 rounded-lg shadow-md flex flex-col justify-between">
@@ -52,11 +52,12 @@ export default function MyProduct({ _id, name, images, description, price}){
 
             <div className="w-full">
                 <p className="text-lg font-bold my-2">${price.toFixed(2)}</p>
-                <button className="w-full text-white px-4 py-2 rounded-md bg-neutral-900"
-                onClick={handleEdit} >
-                    Edit
+                <button className="w-full text-white font-bold px-4 py-2 rounded-full bg-blue-600 hover:bg-blue-700 transition mb-2"
+                onClick={handleEdit}>
+                Edit
                 </button>
-                <button className="w-full text-white px-4 py-2 rounded-md bg-neutral-900"
+
+                <button className="w-full text-white font-bold px-4 py-2 rounded-full bg-blue-600 hover:bg-blue-700 transition"
                 onClick={handleDelete} >
                     Delete
                 </button>

@@ -1,6 +1,7 @@
 //eslint-disable-next-line
 import React, {useEffect, useState} from "react";
-import Myproduct from "../components/myProducts";
+import MyProduct from "../components/myProducts";
+import Navbar from "../components/nav";
 
 export default function MyProducts() {
     const [products, setProducts] = useState([]);
@@ -36,14 +37,17 @@ if(error) {
 }
 
 return (
+    <div>
+        <Navbar/>
     <div
         className="flex min-h-screen items-center justify-center bg-gradient-to-r from-blue-500 to-purple-600 px-6 py-12">
         <h1 className="text-3xl text-center text-white py-6"><strong>Product Gallery</strong></h1>
         <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-4 p-4">
             {products.map((product) => (
-                <Myproduct key={product._id} {...product}/>
+                <MyProduct key={product._id} {...product}/>
             ))}
         </div>
+    </div>
     </div>
 );
     

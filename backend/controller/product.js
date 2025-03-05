@@ -4,6 +4,7 @@ const User = require('../model/user');
 const router = express.Router();
 const {pupload} = require('../multer')
 const path = require('path')
+const mongoose = require('mongoose');
 const validateProductsData = (data) => {
     const errors = [];
 
@@ -100,7 +101,7 @@ router.get('/get-products', async (req,res) => {
         }
     })
 
-    router.put('update-product/:id', pupload.array('images',10), async (req,res) => {
+    router.put('/update-product/:id', pupload.array('images',10), async (req,res) => {
         const {id} = req.params;
         const {name, description, category,tags, price, stock, email} = req.body;
 
@@ -151,19 +152,22 @@ router.get('/get-products', async (req,res) => {
         }
     });
 
-    router.delete('/delete-product/:id'), async (req, res) => {
-        const {id} = req.params;
-        try{
+    router.delete('/delete-product/:id', async (req, res) => {
+        const { id } = req.params;
+        try {
             const existingProduct = await Product.findById(id);
-            if(!existingProduct) {
-                return res.status(404).json({error: 'Product not found 🧑‍🦯‍➡️👨‍🦯‍➡️👩‍🦯‍➡️'});
+            if (!existingProduct) {
+                return res.status(404).json({ error: "Product not found" });
             }
-        }catch(err) {
-            console.error('Server error :',err);
-            res.status(500).json({error: 'Server error. Could not delete the product🫵🤏'})
+    
+            await Product.findByIdAndDelete(id); // ✅ Deletes the product
+            res.status(200).json({ message: "Product deleted successfully!" });
+        } catch (err) {
+            console.error("Server error:", err);
+            res.status(500).json({ error: "Server error. Could not delete the product" });
         }
-    }
-    router.post('/cart', async (req, res) => {
+    });
+    router.post('/product/cart', async (req, res) => {
             try {
                 console.log("Raw Request Body:", req.body);  // 🔍 Log req.body
         
