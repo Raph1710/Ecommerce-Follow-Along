@@ -109,3 +109,23 @@ Added Functionality to delete the uploaded products
 ## **MILESTONE 15**
 
 Created a new ```NAV``` component which contains links to the Home page, My products page, add products page and the cart page
+
+## **Milestone 16**
+
+Create a Product Info Page
+
+## **Milestone 17**
+
+Implementing cart functionality, the goal is to store product details in a user's cart and create an endpoint to receive and store these details in the database.
+
+## **Milestone 18**
+
+Working on backend functionality for the cart. The goal is to create endpoints that handle requests from the cart page and retrieve product details for a user’s cart.
+
+## **Milestone 19**
+
+Build a cart page that displays products inside the cart using the endpoint created in Milestone 18.
+
+## **Milestone 20**
+
+Create an endpoint to send user data (including profile photo, name, email, and address).

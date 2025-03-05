@@ -1,6 +1,8 @@
 //eslint-disable-next-line
 import React, {useEffect, useState} from "react";
 import Product from "../components/products";
+import Nav from "../components/nav";
+
 export default function Home() {
     const [product, setProduct] = useState([]);
     const [loading, setLoading] = useState(true); //for loading state
@@ -35,6 +37,8 @@ if(error) {
 }
 
 return (
+    <>
+    <Nav/>
     <div className="1-full min-h-screen bg-gradient-to-r from-blue-600 to-purple-800 px-6 py-6">
         <h1 className="text-3xl text-center text-white py-6">Product Gallery</h1>
         <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-4 p-4">
@@ -43,6 +47,7 @@ return (
             ))}
         </div>
     </div>
+    </>
 );
     
 }
