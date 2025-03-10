@@ -138,3 +138,11 @@ Will also display address if given.
 ## **Milestone 22**
 
 Create a backend endpoint that receives an address from the frontend and stores it inside the user's profile in the database.
+
+## **Milestone 23**
+
+Added a page to select address during cart checkout
+
+## **Milestone 24**
+
+Added a page to confirm order and order details while checking out
