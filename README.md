@@ -146,3 +146,6 @@ Added a page to select address during cart checkout
 ## **Milestone 24**
 
 Added a page to confirm order and order details while checking out
+
+## **Milestone 25**
+Added backend endpoint for placing orders
