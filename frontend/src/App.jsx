@@ -11,6 +11,7 @@ import { ProductDetails } from './Routes/route.js';
 import { Profile, CreateAddress } from './Routes/route.js';
 import {SelectAddress} from './Routes/route.js';
 import {OrderConfirmation} from './Routes/route.js';
+import { MyOrdersPage } from './Routes/route.js';
 
 const App = () => {
   return (
@@ -28,6 +29,7 @@ const App = () => {
         <Route path="/create-address" element={<CreateAddress/>}></Route>
         <Route path="/select-address" element={<SelectAddress/>}></Route>
         <Route path="/order-confirmation" element={<OrderConfirmation/>}></Route>
+        <Route path="/myorders" element={<MyOrdersPage/>}></Route>
       </Routes>
     </BrowserRouter>
   );

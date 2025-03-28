@@ -1,7 +1,7 @@
 //eslint-disable-next-line
 import {React, useState, useEffect} from 'react';
 import axios from 'axios'
-import Nav from '../components/nav'
+import Navbar from '../components/nav'
 import {useLocation, useNavigate} from 'react-router-dom'
 
 const OrderConfirmation = () => {
@@ -105,7 +105,7 @@ const handlePlaceOrder = async () => {
 
 return (
     <div className='w-full min-h-screen flex flex-col'>
-        <Nav />
+        <Navbar />
         <div className='flex-grow flex justify-center items-start p-4'>
             <div className='w-full max-w-4xl border border-neutral-300 rounded-md flex flex-col p-6 bg-white shadow-md'>
                 <h2 className='text-2xl font-semibold mb-6 text-center'>Order Confirmation</h2>

@@ -148,4 +148,17 @@ Added a page to select address during cart checkout
 Added a page to confirm order and order details while checking out
 
 ## **Milestone 25**
-Added backend endpoint for placing orders
+
+created backend endpoint to handle order placement
+
+## **Milestone 26**
+
+Created an endpoint that takes a user's email and fetches the user's orders
+
+## **Milestone 27**
+
+Implementing the My Orders Page for Seamless Order Tracking
+
+## **Milestone 28**
+
+Added a cancel order feature
