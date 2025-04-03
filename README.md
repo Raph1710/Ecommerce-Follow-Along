@@ -162,3 +162,7 @@ Implementing the My Orders Page for Seamless Order Tracking
 ## **Milestone 28**
 
 Added a cancel order feature
+
+## **Milestone 29**
+
+Integrated the PayPal payment gateway, allowing users to choose between Cash on Delivery (COD) or online payment via PayPal.
