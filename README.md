@@ -166,3 +166,14 @@ Added a cancel order feature
 ## **Milestone 29**
 
 Integrated the PayPal payment gateway, allowing users to choose between Cash on Delivery (COD) or online payment via PayPal.
+
+## **Milestone 30**
+
+Created a PayPal Sandbox Account
+Visited developer.paypal.com, created a sandbox account, and grabbed the User ID.
+
+Obtained Client ID
+Generated sandbox client ID — used it to connect my app to PayPal’s services.
+
+Installed the PayPal React Package
+npm install @paypal/react-paypal-js
