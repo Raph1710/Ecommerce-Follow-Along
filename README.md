@@ -177,3 +177,11 @@ Generated sandbox client ID — used it to connect my app to PayPal’s services
 
 Installed the PayPal React Package
 npm install @paypal/react-paypal-js
+
+## **Milestone 31**
+
+Successfully implemented Redux for global state management in React, enabling centralized storage and access of user data across components while mastering core concepts like actions, store configuration, and state selectors.
+
+## **Milestone 32**
+
+Redux implementation successfully integrated, allowing for global state management of user email across multiple pages while eliminating prop drilling.
