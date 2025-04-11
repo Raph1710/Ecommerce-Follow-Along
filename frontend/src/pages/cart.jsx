@@ -1,15 +1,20 @@
 import { useState, useEffect } from "react";
-import CartProduct from "../components/cartProducts";
+import CartProducts from "../components/cartProduct";
 import Nav from "../components/nav";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Cart = () => {
   const [products, setProducts] = useState([]);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
+  const email = useSelector((state) => state.user.email);
+
   useEffect(() => {
-    fetch(`http://localhost:8000/api/v2/product/cartproducts?email=dummy@gmail.com`)
+    if (!email) return; // Don't make the API call if email is not available
+    
+    fetch(`http://localhost:8000/api/v2/product/cartproducts?email=${email}`)
       .then((res) => {
         if (!res.ok) {
           throw new Error(`HTTP error! status: ${res.status}`);
@@ -31,7 +36,7 @@ const Cart = () => {
         console.error("Error fetching cart products:", err);
         setError(err.message);
       });
-  }, []);
+  }, [email]); // Add email to dependency array
 
     const handlePlaceOrder = () => {
       navigate('/select-address');
@@ -50,7 +55,7 @@ const Cart = () => {
             {error ? (
               <div className="text-red-500 text-center">{error}</div>
             ) : products.length > 0 ? (
-              products.map((product) => <CartProduct key={product._id} {...product} />)
+              products.map((product) => <CartProducts key={product._id} {...product} />)
             ) : (
               <div className="text-gray-500 text-center py-5">Your cart is empty.</div>
             )}
