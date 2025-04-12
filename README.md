@@ -185,3 +185,7 @@ Successfully implemented Redux for global state management in React, enabling ce
 ## **Milestone 32**
 
 Redux implementation successfully integrated, allowing for global state management of user email across multiple pages while eliminating prop drilling.
+
+## **Milestone 32**
+
+Implemented secure JWT authentication by generating tokens with user info, setting expiration, and storing them in HTTP-only cookies to manage sessions and enable protected routes.

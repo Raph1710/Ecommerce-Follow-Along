@@ -7,6 +7,8 @@ import { useNavigate } from "react-router-dom";
 import {useDispatch} from "react-redux";
 import { setemail } from "@/store/userAction";
 
+axios.defaults.withCredentials = true;
+
 function Login() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
